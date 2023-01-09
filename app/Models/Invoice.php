@@ -9,6 +9,14 @@ class Invoice extends Model
 {
     use HasFactory;
 
+    //fillable
+    protected $table = 'invoices';
+
+    protected $fillable = [
+        'due_date',
+        'paid_date',
+    ];
+
     public function item() {
         return $this->hasMany(InvoiceItem::class);
     }

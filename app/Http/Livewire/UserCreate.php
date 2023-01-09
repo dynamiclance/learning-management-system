@@ -21,6 +21,7 @@ class UserCreate extends Component
         'password' => 'required|min:6',
         'role' => 'required',
     ];
+    
     public function render()
     {
         $roles = Role::all();

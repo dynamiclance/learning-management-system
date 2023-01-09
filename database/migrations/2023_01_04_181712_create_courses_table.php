@@ -18,11 +18,23 @@ return new class extends Migration
             $table->string("name");
             $table->longText("description");
             $table->string("image");
-
+            $table->float("price")->default(0);
             $table->unsignedBigInteger("user_id");
             $table->timestamps();
 
             $table->foreign("user_id")->references('id')->on('users')->onDelete('cascade');
+        });
+
+        //create course_students table
+        Schema::create('course_student', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('course_id');
+            $table->unsignedBigInteger('student_id');
+            $table->timestamps();
+
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
+            $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 

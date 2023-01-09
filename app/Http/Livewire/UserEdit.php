@@ -17,15 +17,21 @@ class UserEdit extends Component
     public function mount()
     {
         $user = User::where('id', $this->user_id)->with('roles')->first();
+        
         $this->name = $user->name;
         $this->email = $user->email;
-        $this->role = $user->roles[0]->id;
+        $this->role = $user->roles[0]->name;
+
+        
     }
 
     public function render()
     {
         $user = User::where('id', $this->user_id)->with('roles')->first();
         $roles = Role::all();
+
+        //dd($this->role);
+
         return view('livewire.user-edit', [
             'user' => $user,
             'roles' => $roles

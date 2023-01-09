@@ -12,6 +12,7 @@ class UserIndex extends Component
     {
         $users = User::paginate(10);
         $roles = User::with('roles')->get();
+
         return view('livewire.user-index', [
             'users' => $users,
             'roles' => $roles

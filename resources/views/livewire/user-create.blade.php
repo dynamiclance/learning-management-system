@@ -1,6 +1,7 @@
 
 <form wire:submit.prevent="submitForm">
     <div class="flex -mx-4 mb-4">
+        
         <div class="flex-1 px-4">
             <label for="name" class="lms-label">Name</label>
             <input wire:model.lazy="name" id="name" type="text" class="lms-input">
