@@ -27,21 +27,24 @@ class Admission extends Component
         ]);
     }
 
-    public function search() {
+    public function search()
+    {
         $this->leads = Lead::where('name', 'like', '%' . $this->search . '%')
             ->orWhere('email', 'like', '%' . $this->search . '%')
             ->orWhere('phone', 'like', '%' . $this->search . '%')
             ->get();
 
-       // dd($this->leads);
+        // dd($this->leads);
     }
 
-    public function courseSelected() {
+    public function courseSelected()
+    {
         $this->selectedCourse = Course::findOrFail($this->course_id);
     }
 
 
-    public function admit() {
+    public function admit()
+    {
         $lead = Lead::findOrFail($this->lead_id);
 
         //dd($lead);
@@ -66,11 +69,12 @@ class Admission extends Component
             'invoice_id' => $invoice->id,
         ]);
 
+
         $this->selectedCourse->students()->attach($user->id);
 
-        if(!empty($this->payment)) {
+        if (!empty($this->payment)) {
             Payment::create([
-            
+
                 'invoice_id' => $invoice->id,
                 'amount' => $this->payment,
             ]);
@@ -85,8 +89,5 @@ class Admission extends Component
         $this->selectedCourse = null;
 
         flash()->addSuccess("User admission successful");
-    
     }
-
-
 }

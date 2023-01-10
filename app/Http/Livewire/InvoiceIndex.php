@@ -18,10 +18,11 @@ class InvoiceIndex extends Component
         ]);
     }
 
-    public function invoiceDelete($id) {
+    public function invoiceDelete($id)
+    {
         $invoice = Invoice::findOrFail($id);
         $invoice->delete();
 
-       // return redirect()->route('invoice.index');
+        // return redirect()->route('invoice.index');
     }
 }
