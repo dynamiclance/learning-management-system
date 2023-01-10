@@ -15,6 +15,7 @@ class InvoiceItem extends Model
         'name',
         'price',
         'quantity',
-    
+        'invoice_id'
+
     ];
 }
