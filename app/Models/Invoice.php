@@ -25,7 +25,7 @@ class Invoice extends Model
     }
 
     public function payments() {
-        return $this->hasMany(Payment::class);
+        return $this->hasMany(Payment::class,'invoice_id');
     }
 
     public function amount() {
@@ -36,15 +36,17 @@ class Invoice extends Model
         ];
 
         foreach($this->items as $item) {
+        
             $amounts['total'] += $item->price * $item->quantity;
         }
-
+        //dd($this->payments);
         foreach($this->payments as $payment) {
-            $amounts['paid'] += $payment->amounts;
+
+            $amounts['paid'] += $payment->amount;
         }
 
         $amounts['due'] = $amounts['total'] - $amounts['paid'];
 
-        return $amounts;
+        return $amounts; 
     }
 }

@@ -9,6 +9,22 @@ class Course extends Model
 {
     use HasFactory;
 
+    //fillable fields
+    protected $table = 'courses';
+
+    // protected $primaryKey = 'id';
+    protected $fillable = [
+        'name',
+        'description',
+        'price',
+        'image',
+       'start_date',
+        'end_date',
+        'user_id'
+    ];
+
+    //relationships
+
     public function curriculumns()
     {
         return $this->hasMany(Curriculum::class);

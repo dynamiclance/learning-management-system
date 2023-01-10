@@ -1,3 +1,3 @@
 <div>
-    <h2>All courses</h2>
+    <h1>All courses</h1>
 </div>

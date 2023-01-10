@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use LaravelDaily\Invoices\Classes\Buyer;
 use LaravelDaily\Invoices\Classes\InvoiceItem;
+use LaravelDaily\Invoices\Classes\Party;
 
 class InvoiceController extends Controller
 {
@@ -24,13 +25,23 @@ class InvoiceController extends Controller
 
         //dd($DBinvoice);
 
-
-        $customer = new Buyer([
-            'name' => $DBinvoice->user->name,
+        $client = new Party([
+            'name'          => 'Sajib Khan',
+            'phone'         => '0173202983783',
             'custom_fields' => [
-                'email' => $DBinvoice->user->email,
+                'email'       => 'saifd@gmail.com',
             ],
         ]);
+
+
+        // $customer = new Buyer([
+        //     'name' => $DBinvoice->user->name,
+        //     'custom_fields' => [
+        //         'email' => $DBinvoice->user->email,
+        //     ],
+        // ]);
+
+
 
         $items = [];
         foreach ($DBinvoice->items as $item) {
@@ -49,14 +60,11 @@ class InvoiceController extends Controller
         }
 
         $invoice = \LaravelDaily\Invoices\Invoice::make()
-            ->buyer($customer)
+            ->buyer($client)
             ->currencySymbol('$')
             ->addItems($items);
 
         return $invoice->stream();
     }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> 68a731de89fc0c52108713c7018010bced0a8605
