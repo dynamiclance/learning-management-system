@@ -9,6 +9,7 @@
             <th class="border px-4 py-2">Due</th>
             <th class="border px-4 py-2">Actions</th>
         </tr>
+
         @foreach($invoices as $invoice)
         <tr>
             <td class="border px-4 py-2">{{$invoice->id}}</td>
@@ -27,7 +28,8 @@
                         @include('components.icons.show')
                     </a>
 
-                    <form class="ml-1" onsubmit="return confirm('Are you sure?');" wire:submit.prevent="invoiceDelete({{$invoice->id}})">
+                    <form class="ml-1" onsubmit="return confirm('Are you sure?');"
+                        wire:submit.prevent="invoiceDelete({{$invoice->id}})">
                         <button type="submit">
                             @include('components.icons.delete')
                         </button>
@@ -37,17 +39,17 @@
         </tr>
         @endforeach
     </table>
-{{-- 
+    {{--
     <div class="mt-4">
         {{$inovice->links()}}
     </div> --}}
-</div> 
+</div>
 
 
 
 {{-- <div>
     @foreach ($invoices as $invoice)
-        <div>{{$invoice->id}}</div>
-        <div>{{$invoice->user->name}}</div>
+    <div>{{$invoice->id}}</div>
+    <div>{{$invoice->user->name}}</div>
     @endforeach
 </div> --}}
