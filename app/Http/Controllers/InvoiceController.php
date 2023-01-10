@@ -10,13 +10,15 @@ use LaravelDaily\Invoices\Classes\InvoiceItem;
 
 class InvoiceController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         return view('invoice.index');
     }
 
-    public function show($id) {
+    public function show($id)
+    {
 
-    
+
 
         $DBinvoice = Invoice::findOrFail($id);
 
@@ -31,28 +33,26 @@ class InvoiceController extends Controller
         ]);
 
         $items = [];
-        foreach($DBinvoice->items as $item) {
+        foreach ($DBinvoice->items as $item) {
             $items[] = (new InvoiceItem())->title($item->name)->pricePerUnit($item->price)->quantity($item->quantity);
 
-             dd($items);
+            //  dd($items);
         }
 
-       
+
 
         // payments
-        foreach($DBinvoice->payments as $payment) {
+        foreach ($DBinvoice->payments as $payment) {
             $items[] = (new InvoiceItem())->title('Payment')->pricePerUnit(-$payment->amount)->quantity(1);
-            
-           // dd($items);
+
+            // dd($items);
         }
 
         $invoice = \LaravelDaily\Invoices\Invoice::make()
-        ->buyer($customer)
-        ->currencySymbol('$')
-        ->addItems($items);
+            ->buyer($customer)
+            ->currencySymbol('$')
+            ->addItems($items);
 
         return $invoice->stream();
-
     }
-   
 }

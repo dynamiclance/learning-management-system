@@ -62,6 +62,7 @@ class Admission extends Component
             'user_id' => $user->id,
         ]);
 
+
         InvoiceItem::create([
             'name' => 'Course: ' . $this->selectedCourse->name,
             'price' => $this->selectedCourse->price,
@@ -74,13 +75,10 @@ class Admission extends Component
 
         if (!empty($this->payment)) {
             Payment::create([
-
-                'invoice_id' => $invoice->id,
                 'amount' => $this->payment,
+                'invoice_id' => $invoice->id,
             ]);
         }
-
-
 
         $this->search = null;
         $this->leads = [];
