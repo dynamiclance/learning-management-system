@@ -36,11 +36,11 @@ class Invoice extends Model
         ];
 
         foreach($this->items as $item) {
-            $amounts['total'] = $item->price * $item->quantity;
+            $amounts['total'] += $item->price * $item->quantity;
         }
 
         foreach($this->payments as $payment) {
-            $amounts['paid'] = $payment->amount;
+            $amounts['paid'] += $payment->amounts;
         }
 
         $amounts['due'] = $amounts['total'] - $amounts['paid'];

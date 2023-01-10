@@ -34,7 +34,7 @@ class InvoiceController extends Controller
         foreach($DBinvoice->items as $item) {
             $items[] = (new InvoiceItem())->title($item->name)->pricePerUnit($item->price)->quantity($item->quantity);
 
-             dd($items);
+            //  dd($items);
         }
 
        
