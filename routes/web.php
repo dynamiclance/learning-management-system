@@ -36,10 +36,12 @@ Route::middleware('auth')->group(function () {
     Route::resource('user', UserController::class);
     Route::resource('role', RoleController::class);
     Route::get('/admission', [AdmissionController::class, 'admission'])->name('admission');
-    Route::get('/invoice', [InvoiceController::class, 'index'])->name('invoice');
-    Route::get('/invoice/{id}', [InvoiceController::class, 'show'])->name('invoice-show');
+    // Route::get('/invoice', [InvoiceController::class, 'index'])->name('invoice');
+    // Route::get('/invoice/{id}', [InvoiceController::class, 'show'])->name('invoice-show');
 
     Route::resource('course', CourseController::class);
+    Route::resource('invoice', InvoiceController::class);
+
 });
 
 require __DIR__ . '/auth.php';

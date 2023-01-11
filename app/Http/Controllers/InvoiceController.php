@@ -16,55 +16,65 @@ class InvoiceController extends Controller
         return view('invoice.index');
     }
 
+
     public function show($id)
     {
-
-
-
-        $DBinvoice = Invoice::findOrFail($id);
-
-        //dd($DBinvoice);
-
-        $client = new Party([
-            'name'          => 'Sajib Khan',
-            'phone'         => '0173202983783',
-            'custom_fields' => [
-                'email'       => 'saifd@gmail.com',
-            ],
+        return view('invoice.show', [
+            'id' => $id,
         ]);
-
-
-        // $customer = new Buyer([
-        //     'name' => $DBinvoice->user->name,
-        //     'custom_fields' => [
-        //         'email' => $DBinvoice->user->email,
-        //     ],
-        // ]);
-
-
-
-        $items = [];
-        foreach ($DBinvoice->items as $item) {
-            $items[] = (new InvoiceItem())->title($item->name)->pricePerUnit($item->price)->quantity($item->quantity);
-
-            //  dd($items);
-        }
-
-
-
-        // payments
-        foreach ($DBinvoice->payments as $payment) {
-            $items[] = (new InvoiceItem())->title('Payment')->pricePerUnit(-$payment->amount)->quantity(1);
-
-            // dd($items);
-        }
-
-        $invoice = \LaravelDaily\Invoices\Invoice::make()
-            ->buyer($client)
-            ->currencySymbol('$')
-            ->addItems($items);
-
-        return $invoice->stream();
     }
+
+
+
+    // public function show($id)
+    // {
+
+
+
+    //     $DBinvoice = Invoice::findOrFail($id);
+
+    //     //dd($DBinvoice);
+
+    //     $client = new Party([
+    //         'name'          => 'Sajib Khan',
+    //         'phone'         => '0173202983783',
+    //         'custom_fields' => [
+    //             'email'       => 'saifd@gmail.com',
+    //         ],
+    //     ]);
+
+
+    //     // $customer = new Buyer([
+    //     //     'name' => $DBinvoice->user->name,
+    //     //     'custom_fields' => [
+    //     //         'email' => $DBinvoice->user->email,
+    //     //     ],
+    //     // ]);
+
+
+
+    //     $items = [];
+    //     foreach ($DBinvoice->items as $item) {
+    //         $items[] = (new InvoiceItem())->title($item->name)->pricePerUnit($item->price)->quantity($item->quantity);
+
+    //         //  dd($items);
+    //     }
+
+
+
+    //     // payments
+    //     foreach ($DBinvoice->payments as $payment) {
+    //         $items[] = (new InvoiceItem())->title('Payment')->pricePerUnit(-$payment->amount)->quantity(1);
+
+    //         // dd($items);
+    //     }
+
+    //     $invoice = \LaravelDaily\Invoices\Invoice::make()
+    //         ->buyer($client)
+    //         ->currencySymbol('$')
+    //         ->addItems($items);
+
+    //     return $invoice->stream();
+    // }
 
 }
