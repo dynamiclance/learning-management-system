@@ -20,15 +20,15 @@
             <td class="border px-4 py-2">${{$invoice->amount()['due']}}</td>
             <td class="border px-4 py-2 text-center">
                 <div class="flex items-center justify-center">
-                    <a class="mr-1 text-red-700" href="">
+                    <a class="mr-1 font-bold text-blue-700" href="">
                         @include('components.icons.edit')
                     </a>
 
-                    <a class="mr-1 text-red-700" href="{{route('invoice.show', $invoice->id)}}">
+                    <a class="mr-1 font-bold text-blue-700" href="{{route('invoice.show', $invoice->id)}}">
                         @include('components.icons.show')
                     </a>
 
-                    <form class="ml-1 text-red-700" onsubmit="return confirm('Are you sure?');"
+                    <form class="ml-1 font-bold text-blue-700" onsubmit="return confirm('Are you sure?');"
                         wire:submit.prevent="invoiceDelete({{$invoice->id}})">
                         <button type="submit">
                             @include('components.icons.delete')

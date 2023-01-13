@@ -15,12 +15,12 @@
                 <td class="border px-2 py-3 bg-orange-600 text-white">{{$course->description}}</td>
                 <td class="border px-2 py-3 bg-orange-600 text-white">${{$course->price}}</td>
                 <td class="border px-2 py-3 bg-orange-600 font-bold">
-                    <div class="flex justify-between">
+                    <div class="flex items-center text-white">
                         <a class="mr-2" href="{{route('course.show', $course->id)}}">
                             @include("components.icons.show")
                         </a>
                         <form onsubmit="return confirm('Are you sure to delete course')" wire:submit.prevent="deleteCourse({{$course->id}})">
-                            <button>
+                            <button class="text-white">
                                 @include('components.icons.delete')
                             </button>
                         </form>

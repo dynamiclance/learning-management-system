@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex justify-between">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('New Course') }}
+                {{ __('Single Course Details') }}
             </h2>
 
             <a class="lms-btn" href="{{route('course.index')}}">Back to All Course</a>
