@@ -20,6 +20,8 @@ return new class extends Migration
 
             $table->timestamps();
 
+            $table->unique(['curriculum_id', 'user_id']);
+
             $table->foreign("curriculum_id")->references('id')->on('curricula')->onDelete('cascade');
             $table->foreign("user_id")->references('id')->on('users')->onDelete('cascade');
         });
