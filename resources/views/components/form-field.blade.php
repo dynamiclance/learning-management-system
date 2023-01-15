@@ -6,7 +6,7 @@
     </textarea>
 @else
 <input wire:model.lazy="{{$name}}" id="{{$name}}" type="{{$type}}"
-class="rounded-md w-full shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 " placeholder="{{$placeholder}}" {{$required}}>
+class="rounded-md w-full shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="{{$placeholder}}" {{$required}}>
 
 @endif
 

@@ -7,4 +7,4 @@
     <span class="pl-2">Loading ...</span>
 </div>
 
-<button wire:loading.remove type="submit" class="lms-btn">Submit</button>
+<button wire:loading.lazy.remove type="submit" class="lms-btn">Submit</button>

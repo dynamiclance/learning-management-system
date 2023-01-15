@@ -2,6 +2,7 @@
     <table class="w-full table-auto">
         <tr class="bg-slate-700 text-white">
             <th class="border px-4 py-2 text-left">Id</th>
+            <th class="border px-4 py-2 text-left">Courses</th>
             <th class="border px-4 py-2 text-left">User</th>
             <th class="border px-4 py-2 text-left">Due Date</th>
             <th class="border px-4 py-2">Amount</th>
@@ -13,6 +14,7 @@
         @foreach($invoices as $invoice)
         <tr>
             <td class="border px-4 py-2">{{$invoice->id}}</td>
+            <td class="border px-4 py-2">{{$invoice->id}}</td>
             <td class="border px-4 py-2">{{$invoice->user->name}}</td>
             <td class="border px-4 py-2 text-center">{{date('F j, Y', strtotime($invoice->due_date))}}</td>
             <td class="border px-4 py-2">${{$invoice->amount()['total']}}</td>
@@ -20,7 +22,7 @@
             <td class="border px-4 py-2">${{$invoice->amount()['due']}}</td>
             <td class="border px-4 py-2 text-center">
                 <div class="flex items-center justify-center">
-                    <a class="mr-1 font-bold text-blue-700" href="">
+                    <a class="mr-1 font-bold text-blue-700" href="{{route('invoice.edit', $invoice->id)}}">
                         @include('components.icons.edit')
                     </a>
 

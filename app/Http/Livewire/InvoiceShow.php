@@ -20,12 +20,13 @@ class InvoiceShow extends Component
 
 
        $invoice = Invoice::where('id', $this->selectedCourseId)->with('user')->first();
-        $courseItem = InvoiceItem::where('id', $this->selectedCourseId)->first();
+    //    dd($invoice->items);
+        // $courseItem = InvoiceItem::where('id', $this->selectedCourseId)->first();
         
 
         return view('livewire.invoice-show', [ 
             'invoice' => $invoice,
-            'courseItem' => $courseItem,
+            // 'courseItem' => $courseItem,
         ]);
     }
 
