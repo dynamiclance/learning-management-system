@@ -16,7 +16,6 @@ Part #3:
 - LiveWire Component creation and use
 
 
-https://github.com/dynamiclance/lms
 
 Part #4:
 ======
@@ -38,14 +37,14 @@ Part #6:
 
 - Access to Lead Component only for authorized user ( Lead, and Super Admin)
 
-https://github.com/dynamiclance/lms
 
-Part 7:
+
+Part #7:
 ======
 
 - lead edit through livewire without loading
 
-Part 08:
+Part #8:
 ======
 
 LMS project  part 8 :
@@ -55,38 +54,26 @@ Task::
 =====
 All user Display
 
-Part 09:
+Part #09:
 =======
 Search for lead to get enrolled on the course
 
 - Admission  and payment process
 
-Part 10:
+Part #10:
 ======
 
 After successfull entrollment user will become student
 
 - Invoice creation
 - payment recieve
-- invoice Item pdf by LaraDaily | laravel Invoices | https://github.com/LaravelDaily/laravel-invoices
+- invoice Item pdf by LaraDaily | laravel Invoices 
+- Source:  https://github.com/LaravelDaily/laravel-invoices
 
-Part -11
+Part #11
 ======
 
 Course Enrollment Task with User(teacher)
-
-Github repo: 
-=========
-https://github.com/dynamiclance/learning-management-system
-
-Part 12: [Task]
-
-- Course Index
-- New Course Create and Delee functionality
-- Single Course View
-
-- Invoice Index
-- Single Invoice view
 
 Part 12: [Task]
 
@@ -99,41 +86,39 @@ Part 12: [Task]
 
 Note: I didn't assign course  curriculumn with single course 
 
-Part -12 ( Pending Task )
+Part #12 ( Pending Task )
 =====
 - All Courses
 - Single Course with Curriculumns/Class
 - Single Class with students 
 - Add Note Option
 
-Part-13 [ Practice ]
-=======
+Part #13 [ Practice ]
+===============
 - Student Attendance Check 
 
-https://github.com/dynamiclance/learning-management-system
 
-LMS Project Class-20 ( Part -14 ) [ Task ]
+ Part #14  [ Task ]
 =========================
 
 = Question Index
 = New Question Create
 = Question Delete
 
-LMS Project Class-20 ( Part -15 ) [ Task ]
+Part #15  [ Task ]
 
 == Quiz Index
 == New Quiz Create Based on Question
 == Question Add To Existing Quiz | Delete
 == Existing Quiz Edit, Update, Delete
 
-LMS Project Class-20 ( Part -16 ) [ Task ]
+ Part #16 [ Task ]
 
 == Disabled select input dynamically
 == Count Quiz result ( Correct, Incorrect, Total)
 
-GitHub Repo: https://github.com/dynamiclance/learning-management-system
 
-LMS Project Class-20 ( Part -17 ) [ Task ]
+ Part #17  [ Task ]
 ===============================
 
 == single invoice edit
