@@ -101,29 +101,29 @@ Part #13 [ Practice ]
  Part #14  [ Task ]
 =========================
 
-= Question Index
-= New Question Create
-= Question Delete
+- Question Index
+- New Question Create
+- Question Delete
 
 Part #15  [ Task ]
 
-== Quiz Index
-== New Quiz Create Based on Question
-== Question Add To Existing Quiz | Delete
-== Existing Quiz Edit, Update, Delete
+- Quiz Index
+- New Quiz Create Based on Question
+- Question Add To Existing Quiz | Delete
+- Existing Quiz Edit, Update, Delete
 
  Part #16 [ Task ]
 
-== Disabled select input dynamically
-== Count Quiz result ( Correct, Incorrect, Total)
+- Disabled select input dynamically
+- Count Quiz result ( Correct, Incorrect, Total)
 
 
  Part #17  [ Task ]
 ===============================
 
-== single invoice edit
-== New Invoice Item add
-== Total Item Cost
-== Single Invoice Show
+- single invoice edit
+- New Invoice Item add
+- Total Item Cost
+- Single Invoice Show
 
 GitHub Repo: https://github.com/dynamiclance/learning-management-system
