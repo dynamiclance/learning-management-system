@@ -25,8 +25,8 @@
         <div class="mb-4">
             <label for="correct_answer">Correct Ans</label>
             <select class="lms-input" wire:model.prevent="correct_answer" name="correct_answer" id="correct_answer">
+                <option value="#">select</option>
                 @foreach ($answers as $answer)
-                    <option value="#"></option>
                     <option value="{{$answer}}">{{ucfirst($answer)}}</option>
                 @endforeach
             </select>
