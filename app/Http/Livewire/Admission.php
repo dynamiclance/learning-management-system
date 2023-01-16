@@ -8,7 +8,9 @@ use App\Models\InvoiceItem;
 use App\Models\Lead;
 use App\Models\Payment;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Livewire\Component;
+
 
 class Admission extends Component
 {
@@ -77,6 +79,7 @@ class Admission extends Component
             Payment::create([
                 'amount' => $this->payment,
                 'invoice_id' => $invoice->id,
+                'transaction_id' => Str::random(8),
             ]);
         }
 

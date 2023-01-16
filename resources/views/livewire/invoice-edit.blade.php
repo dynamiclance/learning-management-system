@@ -122,4 +122,25 @@
                 
         </div>
     </div>
+
+   @if($invoice->amount()['total'] > 0)
+
+    <div class="payment-details my-4">
+        <p class="text-2xl font-bold">Last Payments:</p>
+        @foreach ($invoice->payments as $payment )
+        <div class="flex gap-4 mb-4">
+            <p> {{date('F,j,Y g:i:a', strtotime($payment->created_at))}} : <span class="font-bold">${{$payment->amount}}</span> | transaction id: <span class="font-bold text-gray-700"> {{$payment->transaction_id}}</span> </p>
+
+            <button type="button" wire:click="refund({{$payment->id}})"  class="bg-red-600 text-white px-2">Refund</button>
+        </div>
+        @endforeach
+    </div>
+
+    @else
+    <P class="bg-slate-300 py-3 p-2 my-2">GORIB! Please Pay ASAP</P>
+
+    @endif
+
+
+
 </div>

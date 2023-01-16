@@ -24,8 +24,6 @@ class StripePaymentController extends Controller
                 flash()->addWarning('please fill the form');
                return redirect()->back();
             } else {
-
-            
                 $stripe = new StripeClient(env('STRIPE_SECRET'));
                 //dd($stripe);
 
@@ -39,34 +37,27 @@ class StripePaymentController extends Controller
                         ],
                     ]);
 
-
-                    $charge = $stripe->charges->create([
-                        'amount' => intval($request->amount * 100),
-                        'currency' => 'usd',
-                        'description' => 'payment for invoice id #' . $request->invoice_id,
-                        'source' => $token['id']
-                    ]);
-
-                   // dd($charge);
-
-                   Payment::create([
-                    'amount' => $request->amount,
-                    'invoice_id' => $request->invoice_id
-                   ]);
-
-                   return redirect()->back();
-
-
-                   flash()->addSuccess('payment successful');
-
-
-
                 } catch (\Exception $e) {
                     flash()->addWarning('Invalid card details');
                     return redirect()->back();
                 }
 
-                
+                $charge = $stripe->charges->create([
+                    'amount' =>  intval($request->amount * 100),
+                    'currency' => 'usd',
+                    'description' => 'payment for invoice id #' . $request->invoice_id,
+                    'source' => $token['id']
+                ]);
+
+
+               Payment::create([
+                'amount' => $request->amount,
+                'invoice_id' => $request->invoice_id,
+                'transaction_id' => $charge->id
+               ]);
+
+               flash()->addSuccess('payment successful');
+               return redirect()->back();
                    
             }
     }

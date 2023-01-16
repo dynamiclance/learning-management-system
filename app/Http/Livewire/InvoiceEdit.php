@@ -4,6 +4,8 @@ namespace App\Http\Livewire;
 
 use App\Models\Invoice;
 use App\Models\InvoiceItem;
+use App\Models\Payment;
+use Stripe\StripeClient;
 use Livewire\Component;
 
 class InvoiceEdit extends Component
@@ -51,6 +53,35 @@ class InvoiceEdit extends Component
         return redirect()->route('invoice.edit', $this->invoice->id);
     }
 
+    
+    public function refund($payment_id) {
+        
+        $payment = Payment::findOrFail($payment_id);
+        // dd($payment);
+
+        if(strlen($payment->transaction_id) === 8) {
+            $payment->delete();
+            flash()->addSuccess("Cash Payment Refunded successfully");
+           
+        } else{
+            $stripe = new StripeClient(env('STRIPE_SECRET'));
+            $stripe->refunds->create([
+                'charge' => $payment->transaction_id,
+              ]);
+
+              $payment->delete();
+
+              flash()->addSuccess('Stripe payment Refund successfully');
+            return redirect()->route('invoice.edit', $this->invoice->id);
+              
+        }
+
+        return redirect()->route('invoice.edit', $this->invoice->id);
+
+
+
+    }
+
 
     public function invoiceItemDelete($id) {
     
@@ -62,8 +93,6 @@ class InvoiceEdit extends Component
         return redirect()->route('invoice.edit', $this->invoice->id);
 
     }
- 
-
 
     
 }

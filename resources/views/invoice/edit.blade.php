@@ -11,14 +11,6 @@
                 <div class="p-6 text-gray-900">
                     <livewire:invoice-edit :invoice_id="$invoice->id" />
 
-
-                    <div class="payment-details my-4">
-                        <p class="text-2xl font-bold">Last Payments:</p>
-                        @foreach ($invoice->payments as $payment )
-                            <p> {{date('F,j,Y g:i:a', strtotime($payment->created_at))}} : <span class="font-bold">${{$payment->amount}}</span> </p>
-                        @endforeach
-                    </div>
-
                     
                     @if($invoice->amount()['due'] > 0)
                     <div class="payment-form">
@@ -54,7 +46,7 @@
 
                     @else
 
-                    <h2>No Payments Available</h2>
+                    <h2> - No More Payments Available</h2>
 
                     @endif
                 </div>
