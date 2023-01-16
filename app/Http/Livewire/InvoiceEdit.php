@@ -62,6 +62,7 @@ class InvoiceEdit extends Component
         if(strlen($payment->transaction_id) === 8) {
             $payment->delete();
             flash()->addSuccess("Cash Payment Refunded successfully");
+            return redirect()->route('invoice.edit', $this->invoice->id);
            
         } else{
             $stripe = new StripeClient(env('STRIPE_SECRET'));

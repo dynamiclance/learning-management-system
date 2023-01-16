@@ -129,6 +129,7 @@ Part #13 [ Practice ]
 - Single Invoice Show
 
 LMS Project Class-20 ( Part -18) [ Task ]
+=================================
 
 - Stripe Integration
 - New Item added amount calculation automatically
@@ -136,6 +137,7 @@ LMS Project Class-20 ( Part -18) [ Task ]
 - No more payment message dispaly dynamically for total paid
 
 LMS Project Class-20 ( Part -19) [ Task ]
+============================================
 
 - Cash payment refund through transaction_id
 - Stripe payment refund through transaction_id
