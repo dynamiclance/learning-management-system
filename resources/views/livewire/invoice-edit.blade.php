@@ -33,7 +33,7 @@
                         <div>{{$item->name}}</div>
                         <div>${{$item->price}}</div>
                         <div>{{$item->quantity}}</div>
-                        <div>{{number_format($item->price * $item->quantity)}}</div>
+                        <div>${{number_format($item->price * $item->quantity)}}</div>
                         <div class="flex justify-center">
                         <form class="ml-1 font-bold text-blue-700" onsubmit="return confirm('Are you sure?');"
                             wire:submit.prevent="invoiceItemDelete({{$item->id}})">
@@ -112,7 +112,9 @@
             @endforeach
             <hr>
 
-           <h2 class="mt-2 font-bold text-2xl">Sub Total:  ${{number_format($invoice->amount()['total'], 2)}}</h2>
+           <h2 class="mt-2 font-bold text-md">Sub Total:  ${{number_format($invoice->amount()['total'], 2)}}</h2>
+           <h2 class="mt-2 font-bold text-md">Paid:  - ${{number_format($invoice->amount()['paid'], 2)}}</h2>
+           <h2 class="mt-2 font-bold text-md">Due:  ${{number_format($invoice->amount()['due'], 2)}}</h2>
 
 
 

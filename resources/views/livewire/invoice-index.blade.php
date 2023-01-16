@@ -41,17 +41,9 @@
         </tr>
         @endforeach
     </table>
-    {{--
-    <div class="mt-4">
-        {{$inovice->links()}}
+    
+    {{-- <div class="mt-4">
+        {{$inovices->links()}}
     </div> --}}
 </div>
 
-
-
-{{-- <div>
-    @foreach ($invoices as $invoice)
-    <div>{{$invoice->id}}</div>
-    <div>{{$invoice->user->name}}</div>
-    @endforeach
-</div> --}}

@@ -19,7 +19,7 @@ class InvoiceController extends Controller
 
     public function edit($id) {
         return view('invoice.edit', [
-            'invoice_id' => $id,
+            'invoice' => Invoice::findOrFail($id),
         ]);
     }
 
