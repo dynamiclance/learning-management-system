@@ -128,4 +128,16 @@ Part #13 [ Practice ]
 - Total Item Cost
 - Single Invoice Show
 
+LMS Project Class-20 ( Part -18) [ Task ]
+
+- Stripe Integration
+- New Item added amount calculation automatically
+- Add new payment 
+- No more payment message dispaly dynamically for total paid
+
+LMS Project Class-20 ( Part -19) [ Task ]
+
+- Cash payment refund through transaction_id
+- Stripe payment refund through transaction_id
+
 GitHub Repo: https://github.com/dynamiclance/learning-management-system
