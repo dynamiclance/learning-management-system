@@ -23,7 +23,7 @@
             <td class="border px-2 py- text-center">{{$question->correct_answer}}</td>
             <td class="border px-2 py-3 text-left">
                 <div class="flex items-center justify-center">
-                    <a href="#">
+                    <a href="{{route('question.edit', $question->id)}}">
                         @include('components.icons.edit')
                     </a>
                     <form onsubmit="return confirm('Are you sure?');" wire:submit.prevent="QuestionDelete({{ $question->id }})">
