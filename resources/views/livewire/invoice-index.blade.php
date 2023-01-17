@@ -2,7 +2,6 @@
     <table class="w-full table-auto">
         <tr class="bg-slate-700 text-white">
             <th class="border px-4 py-2 text-left">Id</th>
-            <th class="border px-4 py-2 text-left">Courses</th>
             <th class="border px-4 py-2 text-left">User</th>
             <th class="border px-4 py-2 text-left">Due Date</th>
             <th class="border px-4 py-2">Amount</th>
@@ -13,7 +12,6 @@
 
         @foreach($invoices as $invoice)
         <tr>
-            <td class="border px-4 py-2">{{$invoice->id}}</td>
             <td class="border px-4 py-2">{{$invoice->id}}</td>
             <td class="border px-4 py-2">{{$invoice->user->name}}</td>
             <td class="border px-4 py-2 text-center">{{date('F j, Y', strtotime($invoice->due_date))}}</td>

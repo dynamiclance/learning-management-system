@@ -20,7 +20,7 @@ class InvoiceEdit extends Component
 
     public function mount() {
         $this->invoice = Invoice::findOrFail($this->invoice_id);
-    //    dd($this->invoice->items);
+    //    dd($this->invoice);
     }
     
     public function render()
