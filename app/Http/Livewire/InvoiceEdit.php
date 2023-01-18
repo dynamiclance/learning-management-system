@@ -6,6 +6,7 @@ use App\Models\Invoice;
 use App\Models\InvoiceItem;
 use App\Models\Payment;
 use Stripe\StripeClient;
+use LaravelDaily\Invoices\Classes\Party;
 use Livewire\Component;
 
 class InvoiceEdit extends Component
@@ -93,6 +94,60 @@ class InvoiceEdit extends Component
         flash()->addSuccess('Invoice item deleted successfully');
         return redirect()->route('invoice.edit', $this->invoice->id);
 
+    }
+
+
+
+    public function printDetails()
+    
+    {
+
+    $DBinvoice = Invoice::findOrFail($this->invoice_id);
+
+      //  dd($DBinvoice);
+
+        $client = new Party([
+            'name'          => 'Sajib Khan',
+            'phone'         => '0173202983783',
+            'custom_fields' => [
+                'email'       => 'saifd@gmail.com',
+            ],
+        ]);
+
+
+        // $customer = new Buyer([
+        //     'name' => $DBinvoice->user->name,
+        //     'custom_fields' => [
+        //         'email' => $DBinvoice->user->email,
+        //     ],
+        // ]);
+
+
+
+        $items = [];
+        foreach ($DBinvoice->items as $item) {
+            $items[] = (new \LaravelDaily\Invoices\Classes\InvoiceItem())->title($item->name)->pricePerUnit($item->price)->quantity($item->quantity);
+
+            //dd($items);
+        }
+
+
+
+        // payments
+        foreach ($DBinvoice->payments as $payment) {
+            $items[] = (new \LaravelDaily\Invoices\Classes\InvoiceItem())->title('Payment')->pricePerUnit(-$payment->amount)->quantity(1);
+
+            //  dd($items);
+        }
+
+        $invoice = \LaravelDaily\Invoices\Invoice::make()
+            ->buyer($client)
+            ->currencySymbol('$')
+            ->addItems($items);
+
+            // dd($invoice);
+
+        return $invoice->stream();
     }
 
     

@@ -10,9 +10,11 @@
        <div class="download-invoice-info">
         <h4 class="font-bold">Download Invoice</h4>
         <div class="flex justify-center">
-            <a class="lms-btn" href="#">
+            
+            <button class="lms-btn" href="#">
                 @include("components.icons.print")
-            </a>
+            </button>
+
         </div>
        </div>
     </div>
@@ -140,7 +142,5 @@
     <P class="bg-slate-300 py-3 p-2 my-2">GORIB! Please Pay ASAP</P>
 
     @endif
-
-
 
 </div>
