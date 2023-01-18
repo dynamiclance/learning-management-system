@@ -5,12 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Invoice;
 use Illuminate\Http\Request;
 
-use LaravelDaily\Invoices\Classes\Buyer;
-use LaravelDaily\Invoices\Classes\InvoiceItem;
-use LaravelDaily\Invoices\Classes\Party;
-use Barryvdh\DomPDF\Facade\Pdf;
-
-
 class InvoiceController extends Controller
 {
     public function index()
