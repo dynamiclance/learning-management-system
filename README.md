@@ -76,6 +76,7 @@ Part #11
 Course Enrollment Task with User(teacher)
 
 Part 12: [Task]
+===================
 
 - Course Index
 - New Course Create and Delee functionality
@@ -141,5 +142,7 @@ LMS Project Class-20 ( Part -19) [ Task ]
 
 - Cash payment refund through transaction_id
 - Stripe payment refund through transaction_id
+- Single invoice view print
+- Single Invoice Download
 
 GitHub Repo: https://github.com/dynamiclance/learning-management-system
