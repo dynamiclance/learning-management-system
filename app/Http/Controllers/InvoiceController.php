@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use LaravelDaily\Invoices\Classes\Buyer;
 use LaravelDaily\Invoices\Classes\InvoiceItem;
 use LaravelDaily\Invoices\Classes\Party;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class InvoiceController extends Controller
 {
@@ -31,6 +33,6 @@ class InvoiceController extends Controller
         ]);
     }
 
-
+    
 
 }

@@ -13,7 +13,7 @@ class InvoiceShow extends Component
 {
     public $selectedCourseId;
     public $printDetails;
-
+    
     public function render()
 
     {

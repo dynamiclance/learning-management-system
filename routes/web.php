@@ -11,6 +11,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CurriculumController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\StripePaymentController;
 
 /*
@@ -53,6 +54,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('quiz', QuizController::class);
 
     Route::post('/stripe-payment', [StripePaymentController::class, 'stripePayment'])->name('stripe-payment');
+
+    Route::get('/generate-pdf/{id}',[PdfController::class,'generate_pdf'])->name('generate-pdf');
+     Route::get('/pdf-download/{id}', [PdfController::class, 'pdfDownload'])->name('pdf-download');
 
 }); 
 

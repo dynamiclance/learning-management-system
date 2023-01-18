@@ -20,6 +20,10 @@ class Invoice extends Model
         return $this->hasMany(InvoiceItem::class);
     }
 
+    public function invoiceItems(){
+        return $this->hasMany(InvoiceItem::class);
+    }
+
     public function course()
     {
         return $this->belongsTo(Course::class);

@@ -1,3 +1,4 @@
+
 <div>
     
     <div class="user-container flex justify-between p-4 py-4 mb-4">
@@ -8,13 +9,15 @@
        </div>
 
        <div class="download-invoice-info">
-        <h4 class="font-bold">Download Invoice</h4>
-        <div class="flex justify-center">
-            
-            <button class="lms-btn" href="#">
+        <h4 class="font-bold"></h4>
+        <div class="flex justify-center gap-4">
+            <a target="_blank" class="lms-btn" href="{{route('generate-pdf', $invoice->id)}}">
                 @include("components.icons.print")
-            </button>
+            </a>
 
+            <a class="lms-btn" href="{{route('pdf-download', $invoice->id)}}">
+                @include("components.icons.download")
+            </a>
         </div>
        </div>
     </div>
@@ -117,10 +120,6 @@
            <h2 class="mt-2 font-bold text-md">Sub Total:  ${{number_format($invoice->amount()['total'], 2)}}</h2>
            <h2 class="mt-2 font-bold text-md">Paid:  - ${{number_format($invoice->amount()['paid'], 2)}}</h2>
            <h2 class="mt-2 font-bold text-md">Due:  ${{number_format($invoice->amount()['due'], 2)}}</h2>
-
-
-
-
                 
         </div>
     </div>
@@ -128,7 +127,7 @@
    @if($invoice->amount()['total'] > 0)
 
     <div class="payment-details my-4">
-        <p class="text-2xl font-bold">Last Payments:</p>
+        <p class="text-2xl font-bold">Last Transaction:</p>
         @foreach ($invoice->payments as $payment )
         <div class="flex gap-4 mb-4">
             <p> {{date('F,j,Y g:i:a', strtotime($payment->created_at))}} : <span class="font-bold">${{$payment->amount}}</span> | transaction id: <span class="font-bold text-gray-700"> {{$payment->transaction_id}}</span> </p>
@@ -142,5 +141,7 @@
     <P class="bg-slate-300 py-3 p-2 my-2">GORIB! Please Pay ASAP</P>
 
     @endif
+
+
 
 </div>
